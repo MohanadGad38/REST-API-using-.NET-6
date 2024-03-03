@@ -3,8 +3,8 @@ using BuberBreakFast.Services.Breakfast;
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
-    builder.Services.AddSingleton<IBreakfastServices,breakfastServices>();
-    //builder.Services.AddScoped<IBreakfastServices,breakfastServices>();
+    //builder.Services.AddSingleton<IBreakfastServices,breakfastServices>();
+    builder.Services.AddScoped<IBreakfastServices,breakfastServices>();
     //builder.Services.AddTransient<IBreakfastServices,breakfastServices>();
 }
 
