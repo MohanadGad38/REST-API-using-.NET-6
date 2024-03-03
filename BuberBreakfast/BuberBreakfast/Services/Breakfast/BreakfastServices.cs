@@ -9,4 +9,9 @@ public class breakfastServices : IBreakfastServices
         _breakfasts.Add(breakfast.Id,breakfast);
         
     }
+
+    public Breakfastt GetBreakfast(Guid id)
+    {
+        return _breakfasts[id];
+    }
 }

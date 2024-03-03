@@ -50,7 +50,17 @@ public class BreakfastController: ControllerBase
     [HttpGet("/breakfast/{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
     {
-        
+        Breakfastt breakfastt=_breakfastservices.GetBreakfast(id);
+           var respones=new BreakfastResponse(
+            breakfastt.Id,
+            breakfastt.Name,
+            breakfastt.Description,
+            breakfastt.StartDateTime,
+            breakfastt.EndDateTime,
+            breakfastt.LastModifiedDateTime,
+            breakfastt.Savory,
+            breakfastt.Sweet
+        );
         return Ok(id);
     }
 
