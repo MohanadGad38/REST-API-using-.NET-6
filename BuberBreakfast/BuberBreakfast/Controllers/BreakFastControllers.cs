@@ -13,8 +13,8 @@ public class BreakfastController: ControllerBase
 
 
     [HttpGet("/breakfast/{id:guid}")]
-    public IActionResult Breakfast(CreateBreakfastRequest request)
+    public IActionResult Breakfast(Guid id)
     {
-        return Ok(request);
+        return Ok(id);
     }
 }
