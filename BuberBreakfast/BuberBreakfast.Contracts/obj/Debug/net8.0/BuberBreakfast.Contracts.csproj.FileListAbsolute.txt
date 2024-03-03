@@ -1,0 +1,12 @@
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/bin/Debug/net8.0/BuberBreakfast.Contracts.deps.json
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/bin/Debug/net8.0/BuberBreakfast.Contracts.dll
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/bin/Debug/net8.0/BuberBreakfast.Contracts.pdb
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.AssemblyInfoInputs.cache
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.AssemblyInfo.cs
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.csproj.CoreCompileInputs.cache
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.sourcelink.json
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.dll
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/refint/BuberBreakfast.Contracts.dll
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/BuberBreakfast.Contracts.pdb
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast.Contracts/obj/Debug/net8.0/ref/BuberBreakfast.Contracts.dll
