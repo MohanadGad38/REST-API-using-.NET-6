@@ -61,7 +61,7 @@ public class BreakfastController: ControllerBase
             breakfastt.Savory,
             breakfastt.Sweet
         );
-        return Ok(id);
+        return Ok(respones);
     }
 
      [HttpPut("/breakfast/{id:guid}")]
