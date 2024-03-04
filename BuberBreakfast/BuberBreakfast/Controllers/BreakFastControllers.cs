@@ -52,29 +52,37 @@ public class BreakfastController: ControllerBase
     [HttpGet("/breakfast/{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
     {
-        ErrorOr<Breakfastt> getBreakfastResult=_breakfastservices.GetBreakfast(id);
-          
-          if(getBreakfastResult.IsError&&getBreakfastResult.FirstError==Errors.Breakfast.NotFound)
-          {
-            return NotFound();
-          }
-         
-         var breakfastt=getBreakfastResult.Value;
-        
-        var respones=new BreakfastResponse(
-            breakfastt.Id,
-            breakfastt.Name,
-            breakfastt.Description,
-            breakfastt.StartDateTime,
-            breakfastt.EndDateTime,
-            breakfastt.LastModifiedDateTime,
-            breakfastt.Savory,
-            breakfastt.Sweet
+        ErrorOr<Breakfastt> getBreakfastResult = _breakfastservices.GetBreakfast(id);
+        return getBreakfastResult.Match(
+            Breakfastt=>Ok(MapBreakfastResponse(Breakfastt)),
+            Errors=>Problem()
         );
+        // if (getBreakfastResult.IsError && getBreakfastResult.FirstError == Errors.Breakfast.NotFound)
+        // {
+        //     return NotFound();
+        // }
+
+        // var breakfastt = getBreakfastResult.Value;
+
+        BreakfastResponse respones = MapBreakfastResponse(breakfastt);
         return Ok(respones);
     }
 
-     [HttpPut("/breakfast/{id:guid}")]
+    private static BreakfastResponse MapBreakfastResponse(Breakfastt breakfastt)
+    {
+        return new BreakfastResponse(
+                    breakfastt.Id,
+                    breakfastt.Name,
+                    breakfastt.Description,
+                    breakfastt.StartDateTime,
+                    breakfastt.EndDateTime,
+                    breakfastt.LastModifiedDateTime,
+                    breakfastt.Savory,
+                    breakfastt.Sweet
+                );
+    }
+
+    [HttpPut("/breakfast/{id:guid}")]
     public IActionResult UpsertBreakfast(Guid id,UpsertBreakfastRequest request)
     {
           var breakfast= new Breakfastt(
