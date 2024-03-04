@@ -54,7 +54,7 @@ public class BreakfastController: ControllerBase
     {
         ErrorOr<Breakfastt> getBreakfastResult = _breakfastservices.GetBreakfast(id);
         return getBreakfastResult.Match(
-            Breakfastt=>Ok(MapBreakfastResponse(Breakfastt)),
+            breakfastt=>Ok(MapBreakfastResponse(breakfastt)),
             Errors=>Problem()
         );
         // if (getBreakfastResult.IsError && getBreakfastResult.FirstError == Errors.Breakfast.NotFound)
@@ -64,8 +64,8 @@ public class BreakfastController: ControllerBase
 
         // var breakfastt = getBreakfastResult.Value;
 
-        BreakfastResponse respones = MapBreakfastResponse(breakfastt);
-        return Ok(respones);
+        // BreakfastResponse respones = MapBreakfastResponse(breakfastt);
+        // return Ok(respones);
     }
 
     private static BreakfastResponse MapBreakfastResponse(Breakfastt breakfastt)
