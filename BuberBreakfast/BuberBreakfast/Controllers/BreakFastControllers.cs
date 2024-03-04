@@ -6,8 +6,8 @@ using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberBreakFast.Controllers;
-[ApiController]
-public class BreakfastController: ControllerBase
+
+public class BreakfastController: ApiController
 {
     private readonly IBreakfastServices _breakfastservices;
     public BreakfastController(IBreakfastServices breakfastServices)
@@ -55,7 +55,7 @@ public class BreakfastController: ControllerBase
         ErrorOr<Breakfastt> getBreakfastResult = _breakfastservices.GetBreakfast(id);
         return getBreakfastResult.Match(
             breakfastt=>Ok(MapBreakfastResponse(breakfastt)),
-            Errors=>Problem()
+            errors=>Problem(errors)
         );
         // if (getBreakfastResult.IsError && getBreakfastResult.FirstError == Errors.Breakfast.NotFound)
         // {
