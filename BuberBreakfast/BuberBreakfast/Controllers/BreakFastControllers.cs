@@ -68,7 +68,7 @@ public class BreakfastController: ControllerBase
     public IActionResult UpsertBreakfast(Guid id,UpsertBreakfastRequest request)
     {
           var breakfast= new Breakfastt(
-            Guid.NewGuid(),
+            id,
             request.Name,
             request.Description,
             request.StartDateTime,
