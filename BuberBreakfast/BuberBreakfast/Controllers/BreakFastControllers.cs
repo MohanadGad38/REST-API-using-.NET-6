@@ -17,26 +17,19 @@ public class BreakfastController: ApiController
     [HttpPost("/breakfast")]
     public IActionResult CreateBreakfast(CreateBreakfastRequest request)
     {
-        var breakfast = new Breakfastt(
-            Guid.NewGuid(),
-            request.Name,
-            request.Description,
-            request.StartDateTime,
-            request.EndDateTime,
-            DateTime.UtcNow,
-            request.Savory,
-            request.Sweet
-        );
+        ErrorOr<Breakfastt> requestToBreakfastResult = Breakfastt.From(request);
 
+        if (requestToBreakfastResult.IsError)
+        {
+            return Problem(requestToBreakfastResult.Errors);
+        }
 
-        //db
+        var breakfast = requestToBreakfastResult.Value;
         ErrorOr<Created> createBreakfastResult = _breakfastservices.CreateBreakfast(breakfast);
-        //done
 
-       return createBreakfastResult.Match(
-        created=>Creatednew(breakfast),
-        errors=>Problem(errors)
-       );
+        return createBreakfastResult.Match(
+            created => Creatednew(breakfast),
+            errors => Problem(errors));
 
     }
 
@@ -76,21 +69,19 @@ public class BreakfastController: ApiController
     [HttpPut("/breakfast/{id:guid}")]
     public IActionResult UpsertBreakfast(Guid id,UpsertBreakfastRequest request)
     {
-          var breakfast= new Breakfastt(
-            id,
-            request.Name,
-            request.Description,
-            request.StartDateTime,
-            request.EndDateTime,
-            DateTime.UtcNow,
-            request.Savory,
-            request.Sweet
-        );
-       ErrorOr<UpsertedBreakfast> upserResult= _breakfastservices.UpsertBreakfast(breakfast);
-        return upserResult.Match(
-            upserted=>upserted.isnew?Creatednew(breakfast): NoContent(),
-            errors =>Problem(errors)
-        );
+           ErrorOr<Breakfastt> requestToBreakfastResult = Breakfastt.From(id, request);
+
+        if (requestToBreakfastResult.IsError)
+        {
+            return Problem(requestToBreakfastResult.Errors);
+        }
+
+        var breakfast = requestToBreakfastResult.Value;
+        ErrorOr<UpsertedBreakfast> upsertBreakfastResult = _breakfastservices.UpsertBreakfast(breakfast);
+
+        return upsertBreakfastResult.Match(
+            upserted => upserted.isnew ? Creatednew(breakfast) : NoContent(),
+            errors => Problem(errors));
     }
 
       [HttpDelete("/breakfast/{id:guid}")]
