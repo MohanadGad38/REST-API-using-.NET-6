@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v8.0": {
       "BuberBreakfast/1.0.0": {
         "dependencies": {
-          "BuberBreakfast.Contracts": "1.0.0"
+          "BuberBreakfast.Contracts": "1.0.0",
+          "ErrorOr": "1.10.0"
         },
         "runtime": {
           "BuberBreakfast.dll": {}
+        }
+      },
+      "ErrorOr/1.10.0": {
+        "runtime": {
+          "lib/net6.0/ErrorOr.dll": {
+            "assemblyVersion": "1.10.0.0",
+            "fileVersion": "1.10.0.0"
+          }
         }
       },
       "BuberBreakfast.Contracts/1.0.0": {
@@ -26,6 +35,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "ErrorOr/1.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-prNLSGADVmlFJeTt+GyZ7fg3fPJz8KYDaTIO2PtWZJ3S2ZTOkF6xKIo3JT99b+w4pvIPdl9vgpQckhbN4MdKzQ==",
+      "path": "erroror/1.10.0",
+      "hashPath": "erroror.1.10.0.nupkg.sha512"
     },
     "BuberBreakfast.Contracts/1.0.0": {
       "type": "project",

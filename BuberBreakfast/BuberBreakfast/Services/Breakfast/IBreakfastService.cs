@@ -1,4 +1,5 @@
 using BuberBreakFast.Models;
+using ErrorOr;
 
 namespace  BuberBreakFast.Services.Breakfast;
  
@@ -6,6 +7,6 @@ namespace  BuberBreakFast.Services.Breakfast;
  {
     void CreateBreakfast(Breakfastt breakfast);
     void DeleteBreakfast(Guid id);
-    Breakfastt  GetBreakfast(Guid id);
+    ErrorOr<Breakfastt> GetBreakfast(Guid id);
     void UpsertBreakfast(Breakfastt breakfast);
 }

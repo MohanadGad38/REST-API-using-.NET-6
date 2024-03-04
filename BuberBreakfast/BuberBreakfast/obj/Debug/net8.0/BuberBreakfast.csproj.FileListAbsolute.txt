@@ -28,3 +28,4 @@
 /Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast/obj/Debug/net8.0/BuberBreakfast.pdb
 /Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast/obj/Debug/net8.0/BuberBreakfast.genruntimeconfig.cache
 /Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast/obj/Debug/net8.0/ref/BuberBreakfast.dll
+/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast/bin/Debug/net8.0/ErrorOr.dll
