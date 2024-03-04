@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nmXGl2A35sYlMIw86p/+7yu7G9qcHZjh1VXY1OkvMeGZ1IsuiVcb4ueQVMTw0d/YZTJ4ypRvUCcS9BJgfzrJtQ==",
+  "dgSpecHash": "c7so+aGc7Nq7/GeliAiwukCtwL2zHdtpyBvvvmjKS3NyNKb7Vvu9WaXRUprO6RrT97gGdVPKBeG3mAOOWQvccQ==",
   "success": true,
   "projectFilePath": "/Users/mohanadgad/Desktop/restapiusingnet/REST-API-using-.NET-6/BuberBreakfast/BuberBreakfast/BuberBreakfast.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/mohanadgad/.nuget/packages/erroror/1.10.0/erroror.1.10.0.nupkg.sha512"
+  ],
   "logs": []
 }
