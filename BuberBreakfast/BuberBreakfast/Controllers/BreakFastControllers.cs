@@ -17,7 +17,7 @@ public class BreakfastController: ApiController
     [HttpPost("/breakfast")]
     public IActionResult CreateBreakfast(CreateBreakfastRequest request)
     {
-        var breakfast= new Breakfastt(
+        var breakfast = new Breakfastt(
             Guid.NewGuid(),
             request.Name,
             request.Description,
@@ -30,24 +30,15 @@ public class BreakfastController: ApiController
 
 
         //db
-        _breakfastservices.CreateBreakfast(breakfast);
+        ErrorOr<Created> createBreakfastResult = _breakfastservices.CreateBreakfast(breakfast);
         //done
-        var respones=new BreakfastResponse(
-            breakfast.Id,
-            breakfast.Name,
-            breakfast.Description,
-            breakfast.StartDateTime,
-            breakfast.EndDateTime,
-            breakfast.LastModifiedDateTime,
-            breakfast.Savory,
-            breakfast.Sweet
-        );
-        return CreatedAtAction(
-            nameof(GetBreakfast),
-            new{id =breakfast.Id},
-            value :respones);
-    }
 
+       return createBreakfastResult.Match(
+        created=>Creatednew(breakfast),
+        errors=>Problem(errors)
+       );
+
+    }
 
     [HttpGet("/breakfast/{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
@@ -95,14 +86,26 @@ public class BreakfastController: ApiController
             request.Savory,
             request.Sweet
         );
-        _breakfastservices.UpsertBreakfast(breakfast);
-        return NoContent();
+       ErrorOr<UpsertedBreakfast> upserResult= _breakfastservices.UpsertBreakfast(breakfast);
+        return upserResult.Match(
+            upserted=>upserted.isnew?Creatednew(breakfast): NoContent(),
+            errors =>Problem(errors)
+        );
     }
 
       [HttpDelete("/breakfast/{id:guid}")]
     public IActionResult DeleteBreakfast(Guid id)
     {
-        _breakfastservices.DeleteBreakfast(id);
-        return NoContent();
+        ErrorOr<Deleted> deleteresult=_breakfastservices.DeleteBreakfast(id);
+        return deleteresult.Match(
+            deleted=>NoContent(),
+            errors=> Problem(errors));
+    }
+       private IActionResult Creatednew(Breakfastt breakfast)
+    {
+        return CreatedAtAction(
+                 actionName:   nameof(GetBreakfast),
+                 routeValues:   new { id = breakfast.Id },
+                    value: MapBreakfastResponse(breakfast));
     }
 }
