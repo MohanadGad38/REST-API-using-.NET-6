@@ -10,8 +10,18 @@ public class breakfastServices : IBreakfastServices
         
     }
 
+    public void DeleteBreakfast(Guid id)
+    {
+        _breakfasts.Remove(id);
+    }
+
     public Breakfastt GetBreakfast(Guid id)
     {
         return _breakfasts[id];
+    }
+
+    public void UpsertBreakfast(Breakfastt breakfast)
+    {
+        _breakfasts[breakfast.Id]=breakfast;
     }
 }
